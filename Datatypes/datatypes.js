@@ -1,5 +1,5 @@
-//todo ---------Datatypes---------------
-//^Types of data types
+//todo ---------Variables---------------
+//^Types of variables
 //! Number
 //! String
 //! Boolean
