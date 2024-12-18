@@ -61,7 +61,7 @@ var colorName = Color[9];
 console.log(colorName);
 //~ Example 7 - Unknown -when discribing the variable without knowing the type of values it may have to store
 var notSure = 4;
-notSure = "pooja";
+// notSure = "pooja";
 console.log(notSure);
 //~ Example 8 - any - when not knowing the type of the value, can opt out of type checking using any
 // None of the following lines of code will throw compiler errors.
@@ -71,7 +71,7 @@ var obj = { x: 0 };
 // obj.foo()
 // obj()
 // obj.bar = 100
-obj = "Hello";
+// obj = "Hello";
 console.log(obj);
 // let anyValue : any 
 // console.log(anyValue);
