@@ -1,113 +1,77 @@
-//todo ---------Variables---------------
+//todo ---------------Variables---------------------------
 
-//^Types of variables
-//! Number
-//! String
-//! Boolean
-//! Null
-//! Undefined
+//! var - older variable declaration keyword in javascript
+//! let - introduces block-scoping and declares an immutable variables
+//! const - declares an immutable variable and preferred for most cases in Typescript
 
-//! Arrays
-//! Tuple
-//! Enum
-//! Unknown
-//! Any
-//! Void
+//^ Var
+//! it declares variables with function scope or block scope
+//! Hoisting : variables declared with var are moved to the top of their scope during the compilation phase
 
-//~Example 1
+// console.log(ename) //?  error in code and output will be undefined
+// var ename = "Rohith"
 
-// let a = 10
-// a = 'Hello'
-// a = 20
+//^let
+//! It follows the same syntax as var declarations
+//! let introduces block-scoping to variables
+//! Benifits :
+//! let avoids variable hoisting: Variables declared with let are not hoisted
+//! Provides better scoping : Variables are confined to the block where they are declared
+//! Enchances the code readability and maintainability
 
-// let x 
-// x = 10
-// x = 10
-
-//~ Example 2
-// let num1 : number = 10
-// console.log(num1)
-
-// let myName : string = "Pooja"
-// console.log(myName)
-
-// let married : Boolean = false
-// if(married){
-//     console.log(`My name is ${myName} and i'm married`);  
+// if(true){
+//     let count = 10
+//     console.log(count);
 // }
-// else
-// console.log(`My name is ${myName} and im not married`);
+// console.log(count); //? error as count is not defined
 
-//~ Example 3
+export
+let ename = "kavya"
+let typedName: string = "kavya"
+console.log(ename)
+console.log(typedName);
 
-// let m : undefined = undefined
-// let n : null = null
-// let y 
-// console.log(m);
-// console.log(n);
-// console.log(y);
+//^ between var and let
+//! let is preferable over var
+//! let is block scoped let varibles cannot be read or written to before they are declared
+//! let variables cannot be re-declared
 
-//~ Example 4 - Array
+//^ const
+//!const declares an immutable variables that cannot be ressigned
+//! Immutable variables are useful for constants or values that should not be changed
 
-// let arr1 : number[] = [1,2,3]
-// console.log(arr1);
-// let arr2 : Array<number> = [1,2,3]
-// console.log(arr2)
-// console.log(arr1[2]);
+// const pi = 3.14
+// pi = 3.781 //? error cannot assign the pi
 
-//~ Exaple 5 - Tuple - for fixed values but different types
-// let tuple1 : [number, string] 
-// tuple1 = [10, "Pooja"]
-// tuple1 = ["Hello", 100]
-// console.log(tuple1);
-// console.log(tuple1[1].substring(1));
+//^ Benefits of const
 
-//~Example 6 - Enum - giving more friendly names to sets of values
+//! ensures immutablibity: prevents accidental ressignment of values
+//! improves code robustness : immutable variables can't be modified, reducing potential bugs
+//! Expresses intent : Indicates that a variables value should not change
 
-// enum Color {Blue=9, Green, Red}
-// let c : Color = Color.Blue
-// console.log(c);
+//^ diff b/w let and const
+//! let allows reinitialization of variables. while const does not
+//! let can be declared without an initial value, but const requires initialization.
 
-// let colorName : string = Color[9]
-// console.log(colorName);
+let count : number
+count = 10
+console.log(count)
+// const PI : number //? const declaration is must
 
-//~ Example 7 - Unknown -when discribing the variable without knowing the type of values it may have to store
+//^ choosing between let and const
+//! choose let when values needs to be changed over time
+//! choose const for values that should remain constant
+//! it is advisable to use const in typescript as it helps improve code clarity and prevents accidental modifications.
 
-// let notSure: unknown = 4
-// notSure = "pooja"
-// console.log(notSure);
+//^ considerations for const 
+//! const does not make objects or arrays immutable, only their assignment
+//! properties of const objects can be modified
 
-//~ Example 8 - any - when not knowing the type of the value, can opt out of type checking using any
-// None of the following lines of code will throw compiler errors.
-// Using `any` disables all further type checking, and it is assumed
-// you know the environment better than TypeScript.
-// let obj : any = {x : 0}
-// obj.foo()
-// obj()
-// obj.bar = 100
-// obj = "Hello"
-// console.log(obj);
-
-// let anyValue : any 
-// console.log(anyValue);
-// anyValue = 10
-// anyValue = "Helo"
-// anyValue = true
-// anyValue()
-// console.log(anyValue());
-// console.log(anyValue.toUpperCase());
-
-//~ Example 9 - void - absence of any type, commonly used as return type of functions that do not return any value
-
-// function myFunction() : void {
-//     console.log("Hello");
+const product = {
+    pname : "mobile",
+    price : 10000
+}
+// product = { //? cannot assign because it is a constant
+//     pname : "charger",
+//     price : 188
 // }
-// myFunction()
-
-//~ Example 10 - union - where we can add multiple types for same variable
-
-// let peopleAllowed : number|boolean
-// peopleAllowed = 10
-// peopleAllowed = false
-// peopleAllowed.valueOf()
-// console.log(peopleAllowed);

@@ -1,94 +1,63 @@
-//todo ---------Variables---------------
-//^Types of variables
-//! Number
-//! String
-//! Boolean
-//! Null
-//! Undefined
-//! Arrays
-//! Tuple
-//! Enum
-//! Unknown
-//! Any
-//! Void
-//~Example 1
-// let a = 10
-// a = 'Hello'
-// a = 20
-// let x 
-// x = 10
-// x = 10
-//~ Example 2
-// let num1 : number = 10
-// console.log(num1)
-// let myName : string = "Pooja"
-// console.log(myName)
-// let married : Boolean = false
-// if(married){
-//     console.log(`My name is ${myName} and i'm married`);  
+"use strict";
+//todo ---------------Variables---------------------------
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.ename = void 0;
+//! var - older variable declaration keyword in javascript
+//! let - introduces block-scoping and declares an immutable variables
+//! const - declares an immutable variable and preferred for most cases in Typescript
+//^ Var
+//! it declares variables with function scope or block scope
+//! Hoisting : variables declared with var are moved to the top of their scope during the compilation phase
+// console.log(ename) //?  error in code and output will be undefined
+// var ename = "Rohith"
+//^let
+//! It follows the same syntax as var declarations
+//! let introduces block-scoping to variables
+//! Benifits :
+//! let avoids variable hoisting: Variables declared with let are not hoisted
+//! Provides better scoping : Variables are confined to the block where they are declared
+//! Enchances the code readability and maintainability
+// if(true){
+//     let count = 10
+//     console.log(count);
 // }
-// else
-// console.log(`My name is ${myName} and im not married`);
-//~ Example 3
-// let m : undefined = undefined
-// let n : null = null
-// let y 
-// console.log(m);
-// console.log(n);
-// console.log(y);
-//~ Example 4 - Array
-var arr1 = [1, 2, 3];
-console.log(arr1);
-var arr2 = [1, 2, 3];
-console.log(arr2);
-console.log(arr1[2]);
-//~ Exaple 5 - Tuple - for fixed values but different types
-var tuple1;
-tuple1 = [10, "Pooja"];
-// tuple1 = ["Hello", 100]
-console.log(tuple1);
-console.log(tuple1[1].substring(1));
-//~Example 6 - Enum - giving more friendly names to sets of values
-var Color;
-(function (Color) {
-    Color[Color["Blue"] = 9] = "Blue";
-    Color[Color["Green"] = 10] = "Green";
-    Color[Color["Red"] = 11] = "Red";
-})(Color || (Color = {}));
-var c = Color.Blue;
-console.log(c);
-var colorName = Color[9];
-console.log(colorName);
-//~ Example 7 - Unknown -when discribing the variable without knowing the type of values it may have to store
-var notSure = 4;
-notSure = "pooja";
-console.log(notSure);
-//~ Example 8 - any - when not knowing the type of the value, can opt out of type checking using any
-// None of the following lines of code will throw compiler errors.
-// Using `any` disables all further type checking, and it is assumed
-// you know the environment better than TypeScript.
-var obj = { x: 0 };
-// obj.foo()
-// obj()
-// obj.bar = 100
-obj = "Hello";
-console.log(obj);
-// let anyValue : any 
-// console.log(anyValue);
-// anyValue = 10
-// anyValue = "Helo"
-// anyValue = true
-// anyValue()
-// console.log(anyValue());
-// console.log(anyValue.toUpperCase());
-//~ Example 9 - void - absence of any type, commonly used as return type of functions that do not return any value
-// function myFunction() : void {
-//     console.log("Hello");
+// console.log(count); //? error as count is not defined
+exports.ename = "kavya";
+var typedName = "kavya";
+console.log(exports.ename);
+console.log(typedName);
+//^ between var and let
+//! let is preferable over var
+//! let is block scoped let varibles cannot be read or written to before they are declared
+//! let variables cannot be re-declared
+//^ const
+//!const declares an immutable variables that cannot be ressigned
+//! Immutable variables are useful for constants or values that should not be changed
+// const pi = 3.14
+// pi = 3.781 //? error cannot assign the pi
+//^ Benefits of const
+//! ensures immutablibity: prevents accidental ressignment of values
+//! improves code robustness : immutable variables can't be modified, reducing potential bugs
+//! Expresses intent : Indicates that a variables value should not change
+//^ diff b/w let and const
+//! let allows reinitialization of variables. while const does not
+//! let can be declared without an initial value, but const requires initialization.
+var count;
+count = 10;
+console.log(count);
+// const PI : number //? const declaration is must
+//^ choosing between let and const
+//! choose let when values needs to be changed over time
+//! choose const for values that should remain constant
+//! it is advisable to use const in typescript as it helps improve code clarity and prevents accidental modifications.
+//^ considerations for const 
+//! const does not make objects or arrays immutable, only their assignment
+//! properties of const objects can be modified
+var product = {
+    pname: "mobile",
+    price: 10000
+};
+// product = { //? cannot assign because it is a constant
+//     pname : "charger",
+//     price : 188
 // }
-// myFunction()
-//~ Example 10 - union - where we can add multiple types for same variable
-// let peopleAllowed : number|boolean
-// peopleAllowed = 10
-// peopleAllowed = false
-// peopleAllowed.valueOf()
-// console.log(peopleAllowed);
