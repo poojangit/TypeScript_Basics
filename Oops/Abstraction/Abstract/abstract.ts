@@ -3,7 +3,7 @@
 //^ Abstarct class define a base class that cannot be instantiated. 
 //^ can contains Abstract methods - methods without implementation
 //^ can contains concrete methods - methods with implemenation
-
+export
 abstract class Vehical {
     constructor(public name : string) {
 
